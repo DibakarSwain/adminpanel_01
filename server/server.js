@@ -17,7 +17,7 @@ const _dirname = path.resolve();
 
 // handling cors policy issues
 const corsOptions = {
-  origin: "http://127.0.0.1:5173",
+  origin: ["http://127.0.0.1:5173", "https://adminpanel-01-3.onrender.com"],
   methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
   credentials: true,
 };
@@ -40,6 +40,6 @@ app.get("*", (_, res) => {
 
 connectDb().then(() => {
   app.listen(PORT, () => {
-    console.log(`listen port at: ${port}`);
+    console.log(`listen port at: ${PORT}`);
   });
 });
