@@ -13,7 +13,7 @@ const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
 const path = require("path");
-const _dirname = path.resolve();
+// const _dirname = path.resolve();
 
 // handling cors policy issues
 const corsOptions = {
@@ -33,9 +33,10 @@ app.use("/api/admin", adminRoute);
 
 app.use(errorMiddleware);
 
-app.use(express.static(path.join(_dirname, "/client/dist")));
+app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+
 app.get("*", (_, res) => {
-  res.sendFile(path.resolve(_dirname, "client", "dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "..", "client", "dist", "index.html"));
 });
 
 connectDb().then(() => {
