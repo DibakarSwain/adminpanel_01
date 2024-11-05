@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 8002;
+const PORT = process.env.PORT || 8002;
 
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
@@ -39,7 +39,7 @@ app.get("*", (_, res) => {
 });
 
 connectDb().then(() => {
-  app.listen(port, () => {
+  app.listen(PORT, () => {
     console.log(`listen port at: ${port}`);
   });
 });
