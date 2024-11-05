@@ -17,7 +17,7 @@ const _dirname = path.resolve();
 
 // handling cors policy issues
 const corsOptions = {
-  origin: ["http://127.0.0.1:5173", "https://adminpanel-01-3.onrender.com"],
+  origin: "http://127.0.0.1:5173",
   methods: "GET, POST, PUT, PATCH, DELETE, HEAD",
   credentials: true,
 };
