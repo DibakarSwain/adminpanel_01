@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const authorizationToken = `Bearer ${token}`;
 
-  const API = 'http://localhost:8002';
+  const API = import.meta.env.VITE_APP_URI_API;
   const storeTokenInLS = (serverToken) => {
     setToken(serverToken);
     return localStorage.setItem("token", serverToken);
