@@ -4,11 +4,12 @@ import {Link} from "react-router-dom";
 
 export const AdminUsers = () => {
   const [users, setUsers] = useState([]);
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, API } = useAuth();
 
+  const URL = `${API}/admin/users`;
   const getAllUsersData = async () => {
     try {
-      const response = await fetch("http://localhost:8002/api/admin/users", {
+      const response = await fetch(URL, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -27,7 +28,7 @@ export const AdminUsers = () => {
     try {
       console.log(id);
       const response = await fetch(
-        `http://localhost:8002/api/admin/users/delete/${id}`,
+        `${URL}/delete/${id}`,
         {
           method: "DELETE",
           headers: {
