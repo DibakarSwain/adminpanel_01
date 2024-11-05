@@ -39,7 +39,7 @@ app.get("*", (_, res) => {
 });
 
 connectDb().then(() => {
-  app.listen(PORT, () => {
+  app.listen(PORT, "0.0.0.0", () => {
     console.log(`listen port at: ${PORT}`);
   });
 });
